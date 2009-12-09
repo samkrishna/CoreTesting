@@ -10,7 +10,7 @@
 
 
 @interface NSObjectTestCase : SenTestCase {
-
+  BOOL delayFlag_;
 }
 
 @end

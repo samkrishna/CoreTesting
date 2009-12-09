@@ -9,12 +9,28 @@
 #import "MyTestOfNSObject.h"
 #import "MLog.h"
 
+static NSString *const descriptionKey = @"Welcome to MyTestOfNSObject!";
+NSString *const FiringSelectorNotificationKey = @"Firing Selector Notification";
+
 @implementation MyTestOfNSObject
 
 + (void)initialize
 {
     MSLog(@"Firing +initialize");
     [super initialize];
+}
+
+- (NSString *)description
+{
+  MSLog(@"Firing -description");
+  return descriptionKey;
+}
+
+- (void)firingDelayedSelector
+{
+  MSLog(@"Firing -firingDelayedSelector");
+  [[NSNotificationCenter defaultCenter] postNotificationName:FiringSelectorNotificationKey 
+                                                      object:self];
 }
 
 @end

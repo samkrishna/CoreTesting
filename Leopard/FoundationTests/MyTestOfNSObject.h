@@ -8,9 +8,12 @@
 
 #import <Cocoa/Cocoa.h>
 
+extern NSString *const FiringSelectorNotificationKey;
 
 @interface MyTestOfNSObject : NSObject {
 
 }
+
+- (void)firingDelayedSelector;
 
 @end
