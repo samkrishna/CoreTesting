@@ -67,7 +67,7 @@
 
 - (void)testCancelPreviousPerformRequestsWithTargetSelectorObject
 {
-  MyTestOfNSObject *testObject = [[MyTestOfNSObject alloc] init];
+  NSObject *testObject = [[NSObject alloc] init];
 
   // test something here....
 #warning No idea how to test this

@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6F1406F110D28700007D3B64 /* MLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F7AF1B50FB07CE000A69567 /* MLog.m */; };
+		6F1406F210D28700007D3B64 /* FoundationTestsGlobalHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F7AF1D10FB07EAB00A69567 /* FoundationTestsGlobalHeader.m */; };
+		6F1406F310D28700007D3B64 /* NSObjectTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F7AF1ED0FB07FB000A69567 /* NSObjectTestCase.m */; };
+		6F1406F910D28715007D3B64 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F7AF1C90FB07E4900A69567 /* Foundation.framework */; };
+		6F1406FA10D28715007D3B64 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F7AF1CB0FB07E5E00A69567 /* SenTestingKit.framework */; };
 		6F7AF1B60FB07CE000A69567 /* MLog.h in Headers */ = {isa = PBXBuildFile; fileRef = 6F7AF1B40FB07CE000A69567 /* MLog.h */; };
 		6F7AF1B70FB07CE000A69567 /* MLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F7AF1B50FB07CE000A69567 /* MLog.m */; };
 		6F7AF1CA0FB07E4900A69567 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F7AF1C90FB07E4900A69567 /* Foundation.framework */; };
@@ -79,6 +84,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6F1406F910D28715007D3B64 /* Foundation.framework in Frameworks */,
+				6F1406FA10D28715007D3B64 /* SenTestingKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -340,6 +347,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6F1406F110D28700007D3B64 /* MLog.m in Sources */,
+				6F1406F210D28700007D3B64 /* FoundationTestsGlobalHeader.m in Sources */,
+				6F1406F310D28700007D3B64 /* NSObjectTestCase.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -475,6 +485,7 @@
 				);
 				PREBINDING = NO;
 				PRODUCT_NAME = "Unit Tests";
+				SDKROOT = macosx10.6;
 				WRAPPER_EXTENSION = octest;
 			};
 			name = Debug;
@@ -501,6 +512,7 @@
 				);
 				PREBINDING = NO;
 				PRODUCT_NAME = "Unit Tests";
+				SDKROOT = macosx10.6;
 				WRAPPER_EXTENSION = octest;
 				ZERO_LINK = NO;
 			};
@@ -529,6 +541,7 @@
 				);
 				PREBINDING = NO;
 				PRODUCT_NAME = "Unit Tests-iphone";
+				SDKROOT = iphoneos3.0;
 				WRAPPER_EXTENSION = octest;
 			};
 			name = Debug;
@@ -555,6 +568,7 @@
 				);
 				PREBINDING = NO;
 				PRODUCT_NAME = "Unit Tests-iphone";
+				SDKROOT = iphoneos3.0;
 				WRAPPER_EXTENSION = octest;
 				ZERO_LINK = NO;
 			};
