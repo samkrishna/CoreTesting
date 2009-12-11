@@ -12,19 +12,9 @@
 
 @implementation NSObjectTestCase
 
-- (void)setUp
-{
-  delayFlag_ = YES;
-}
-
-- (void)testInitialize
-{
-    [MyTestOfNSObject initialize];
-}
-
 - (void)testAllocWithZone
 {
-  MyTestOfNSObject *testObject = [[MyTestOfNSObject allocWithZone:NSDefaultMallocZone()] init];
+  NSObject *testObject = [[NSObject allocWithZone:NSDefaultMallocZone()] init];
   STAssertNotNil(testObject, @"testObject should be allocated.");
   [testObject release];
   testObject = nil;
@@ -32,7 +22,7 @@
 
 - (void)testAlloc
 {
-  MyTestOfNSObject *testObject = [[MyTestOfNSObject alloc] init];
+  NSObject *testObject = [[NSObject alloc] init];
   STAssertNotNil(testObject, @"testObject should be allocated.");
   [testObject release];
   testObject = nil;
@@ -43,7 +33,7 @@
   // Not sure how to write this one.
   // If anyone has any suggestions, now would be a great time....
   
-  MyTestOfNSObject *testObject = [[MyTestOfNSObject alloc] init];
+  NSObject *testObject = [[NSObject alloc] init];
   // test something here....
   STAssertTrue(NO, @"I have no idea how to test this method.");
 
@@ -65,7 +55,7 @@
 //    }
 //  }
 //  
-
+//
 //  MSLog(@"Deregistering for notification");
 //  [[NSNotificationCenter defaultCenter] removeObserver:self
 //                                                  name:FiringSelectorNotificationKey 
@@ -88,13 +78,13 @@
 
 - (void)testClass
 {
-  STAssertTrue([self class] == [NSObjectTestCase class], 
+  STAssertTrue([NSObject class] == NSClassFromString(@"NSObject"),
                @"+class is broken!");
 }
 
 - (void)testClassFallbacksForKeyedArchiver
 {
-  MyTestOfNSObject *testObject = [[MyTestOfNSObject alloc] init];
+  NSObject *testObject = [[NSObject alloc] init];
 
   // test something here....
   STAssertTrue(NO, @"I have no idea how to test this method.");
@@ -119,7 +109,20 @@
 - (void)testCopyWithZone
 {  
   // test something here....
-  STAssertTrue([[NSObjectTestCase copyWithZone:[self zone]] class] == [NSObjectTestCase class], @"+copyWithZone may have some issues.");
+  STAssertTrue([[NSObject copyWithZone:[self zone]] class] == [NSObject class], @"+copyWithZone may have some issues.");
 }
+
+- (void)testClassDescription
+{
+  NSObject *testObject = [[NSObject alloc] init];
+
+  // test something here....
+  STAssertTrue([[NSObject description] isEqualToString:@"NSObject"], @"I have no idea how to test this method: %@", [NSObject description]);
+
+  [testObject release];
+  testObject = nil;
+}
+
+
 
 @end
