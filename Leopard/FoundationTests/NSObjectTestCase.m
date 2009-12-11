@@ -7,7 +7,6 @@
 //
 
 #import "NSObjectTestCase.h"
-#import "MyTestOfNSObject.h"
 #import "MLog.h"
 
 @implementation NSObjectTestCase

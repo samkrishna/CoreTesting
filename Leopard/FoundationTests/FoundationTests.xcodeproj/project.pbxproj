@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6F7AF1B00FB07C6300A69567 /* MyTestOfNSObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 6F7AF1AE0FB07C6300A69567 /* MyTestOfNSObject.h */; };
-		6F7AF1B10FB07C6300A69567 /* MyTestOfNSObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F7AF1AF0FB07C6300A69567 /* MyTestOfNSObject.m */; };
 		6F7AF1B60FB07CE000A69567 /* MLog.h in Headers */ = {isa = PBXBuildFile; fileRef = 6F7AF1B40FB07CE000A69567 /* MLog.h */; };
 		6F7AF1B70FB07CE000A69567 /* MLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F7AF1B50FB07CE000A69567 /* MLog.m */; };
 		6F7AF1CA0FB07E4900A69567 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F7AF1C90FB07E4900A69567 /* Foundation.framework */; };
@@ -47,8 +45,6 @@
 		1058C7B1FEA5585E11CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
 		32DBCF5E0370ADEE00C91783 /* FoundationTests_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoundationTests_Prefix.pch; sourceTree = "<group>"; };
 		6F7AF1AC0FB07B1A00A69567 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
-		6F7AF1AE0FB07C6300A69567 /* MyTestOfNSObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyTestOfNSObject.h; sourceTree = "<group>"; };
-		6F7AF1AF0FB07C6300A69567 /* MyTestOfNSObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyTestOfNSObject.m; sourceTree = "<group>"; };
 		6F7AF1B40FB07CE000A69567 /* MLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLog.h; sourceTree = "<group>"; };
 		6F7AF1B50FB07CE000A69567 /* MLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLog.m; sourceTree = "<group>"; };
 		6F7AF1C20FB07E1900A69567 /* Unit Tests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Unit Tests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -110,7 +106,6 @@
 		0867D691FE84028FC02AAC07 /* FoundationTests */ = {
 			isa = PBXGroup;
 			children = (
-				6F7AF1B20FB07C6B00A69567 /* Test Classes */,
 				08FB77AEFE84172EC02AAC07 /* Unit Tests */,
 				32C88DFF0371C24200C91783 /* Other Sources */,
 				089C1665FE841158C02AAC07 /* Resources */,
@@ -184,15 +179,6 @@
 			name = "Other Sources";
 			sourceTree = "<group>";
 		};
-		6F7AF1B20FB07C6B00A69567 /* Test Classes */ = {
-			isa = PBXGroup;
-			children = (
-				6F7AF1AE0FB07C6300A69567 /* MyTestOfNSObject.h */,
-				6F7AF1AF0FB07C6300A69567 /* MyTestOfNSObject.m */,
-			);
-			name = "Test Classes";
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -200,7 +186,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6F7AF1B00FB07C6300A69567 /* MyTestOfNSObject.h in Headers */,
 				6F7AF1B60FB07CE000A69567 /* MLog.h in Headers */,
 				6F7AF1D30FB07EAB00A69567 /* FoundationTestsGlobalHeader.h in Headers */,
 			);
@@ -362,7 +347,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6F7AF1B10FB07C6300A69567 /* MyTestOfNSObject.m in Sources */,
 				6F7AF1B70FB07CE000A69567 /* MLog.m in Sources */,
 				6F7AF1D40FB07EAB00A69567 /* FoundationTestsGlobalHeader.m in Sources */,
 			);
