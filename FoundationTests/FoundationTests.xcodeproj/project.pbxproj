@@ -485,7 +485,7 @@
 				);
 				PREBINDING = NO;
 				PRODUCT_NAME = "Unit Tests";
-				SDKROOT = macosx10.6;
+				SDKROOT = macosx10.5;
 				WRAPPER_EXTENSION = octest;
 			};
 			name = Debug;
@@ -512,7 +512,7 @@
 				);
 				PREBINDING = NO;
 				PRODUCT_NAME = "Unit Tests";
-				SDKROOT = macosx10.6;
+				SDKROOT = macosx10.5;
 				WRAPPER_EXTENSION = octest;
 				ZERO_LINK = NO;
 			};
