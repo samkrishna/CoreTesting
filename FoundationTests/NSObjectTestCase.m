@@ -10,6 +10,15 @@
 #import "MLog.h"
 #import <Foundation/NSObjCRuntime.h>
 #import <objc/runtime.h>
+#import "NSTestObject.h"
+
+// As this evolves, I'm looking to do a number of things:
+// (1) Use Mulle-Kybernetik's OCMock system
+// (2) Write a perl script that will auto-generate the tests with appropriate warnings
+//     for the public class headers.
+//
+// One of the things that's really tedious is typing all this by hand.
+// There's 
 
 @implementation NSObjectTestCase
 
@@ -138,7 +147,7 @@
 	STAssertTrue(descriptionIMP == secondaryIMP, @"IMPs are not equivalent!!");
 }
 
-- (void)testMethodForSelector
+- (void)testClassVersionOfMethodForSelector
 {
 	IMP descriptionIMP = [[NSObject class] methodForSelector:@selector(description)];
 	STAssertTrue(descriptionIMP != NULL, @"IMP is NULL!!");
@@ -241,6 +250,172 @@
 	STAssertTrue(resultClass == [NSObject class], @"Coder's class identity is broken!");
 	[testObject release];
 	testObject = nil;
+}
+
+- (void)testClassForKeyedArchiver
+{
+  NSObject *testObject = [[NSObject alloc] init];
+  Class resultClass = [testObject classForKeyedArchiver];
+  
+  // test something here....
+  STAssertTrue(resultClass == [NSObject class], @"What kind of class is returned?");
+
+  [testObject release];
+  testObject = nil;
+}
+
+- (void)testCopy
+{
+  NSObject *testObject = [[NSObject alloc] init];
+
+  // test something here....
+  STAssertThrows([testObject copy], @"Exception should be raised here!");
+
+  [testObject release];
+  testObject = nil;
+}
+
+- (void)testDealloc
+{
+  NSTestObject *testObject = [[NSTestObject alloc] init];
+//#warning No idea how to test -dealloc
+  
+  STAssertThrows([testObject release], @"Should have raised an exception!");
+  
+  testObject = nil;
+}
+
+- (void)testDoesNotRecognizeSelector
+{
+  NSObject *testObject = [[NSObject alloc] init];
+
+  // test something here....
+  STAssertThrows([testObject doesNotRecognizeSelector:@selector(sortedArrayUsingSelector:)], @"-doesNotRecognizeSelector: should raise an exception!");
+
+  [testObject release];
+  testObject = nil;
+}
+
+- (void)testFinalize
+{
+#warning No idea how to test -finalize \
+         will definitely be different b/t Snow Leopard's garbage collection and the iPhone
+}
+
+- (void)testForwardInvocation
+{
+  NSObject *testObject = [[NSObject alloc] init];
+  NSMethodSignature *sig = [NSArray instanceMethodSignatureForSelector:@selector(sortedArrayUsingSelector:)];
+  NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:sig];
+  // test something here....
+  STAssertThrows([testObject forwardInvocation:invocation], @"Expecting an NSException to be raised for attempting to forward -sortedArrayUsingSelector:");
+
+  [testObject release];
+  testObject = nil;
+}
+
+- (void)testInit
+{
+  NSObject *testObject = [[NSObject alloc] init];
+
+  // test something here....
+  STAssertNotNil(testObject, @"If this is broken, you have much bigger problems.");
+
+  [testObject release];
+  testObject = nil;
+}
+
+- (void)testInstanceVersionOfMethodForSelector
+{
+  NSObject *testObject = [[NSObject alloc] init];
+  IMP methodImp = [testObject methodForSelector:@selector(classForCoder)];
+  
+  // test something here....
+  STAssertFalse(methodImp == NULL, @"This shouldn't be NULL.");
+
+  [testObject release];
+  testObject = nil;
+}
+
+- (void)testMethodSignatureForSelector
+{
+  NSObject *testObject = [[NSObject alloc] init];
+  NSMethodSignature *sig = [testObject methodSignatureForSelector:@selector(copy)];
+  
+  // test something here....
+  STAssertTrue([sig isKindOfClass:[NSMethodSignature class]], @"Yet another test for existence.");
+
+  [testObject release];
+  testObject = nil;
+}
+
+- (void)testMutableCopy
+{
+  NSObject *testObject = [[NSObject alloc] init];
+  
+  // test something here....
+  STAssertThrows([testObject mutableCopy], @"Exception should be raised here!");
+  
+  [testObject release];
+  testObject = nil;
+}
+
+- (void)testPerformSelectorOnThreadWithObjectWaitUntilDone
+{
+#warning I have no idea how to test this method separate from a running application
+}
+
+- (void)testPerformSelectorOnThreadWithObjectWaitUntilDoneModes
+{
+#warning I have no idea how to test this method separate from a running application
+}
+
+- (void)testPerformSelectorWithObjectAfterDelay
+{
+#warning I have no idea how to test this method separate from a running application
+}
+
+- (void)testPerformSelectorWithObjectAfterDelayInModes
+{
+#warning I have no idea how to test this method separate from a running application
+}
+
+- (void)testPerformSelectorInBackgroundWithObject
+{
+#warning I have no idea how to test this method separate from a running application
+}
+
+- (void)testPerformSelectorOnMainThreadWithObjectWaitUntilDone
+{
+#warning I have no idea how to test this method separate from a running application
+}
+
+- (void)testPerformSelectorOnMainThreadWithObjectWaitUntilDoneInModes
+{
+#warning I have no idea how to test this method separate from a running application
+}
+
+- (void)testReplacementObjectForCoder
+{
+  NSObject *testObject = [[NSObject alloc] init];
+
+  // test something here....
+  STAssertTrue(testObject == [testObject replacementObjectForCoder:[[[NSCoder alloc] init] autorelease]], @"Just trying to get some identity work done.");
+
+  [testObject release];
+  testObject = nil;
+}
+
+- (void)testReplacementObjectForKeyedArchiver
+{
+#warning I have no idea how to test this method separate from a running application
+//  NSObject *testObject = [[NSObject alloc] init];
+//
+//  // test something here....
+//  STAssertTrue(testObject == [testObject replacementObjectForKeyedArchiver:[[[NSKeyedArchiver alloc] init] autorelease]], @"Testing for identity existence.");
+//
+//  [testObject release];
+//  testObject = nil;
 }
 
 @end

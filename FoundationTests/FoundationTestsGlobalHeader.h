@@ -6,6 +6,6 @@
 //  Copyright 2009 Chaordium Software. All rights reserved.
 //
 
-#import <Cocoa/Cocoa.h>
+#import <Foundation/Foundation.h>
 #import <SenTestingKit/SenTestingKit.h>
 #import "MLog.h"
