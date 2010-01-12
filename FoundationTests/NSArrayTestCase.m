@@ -135,11 +135,31 @@
   // This one was a little tricky. Since I had to prefix the URL path string with
   // @"file://" I really had a hard time wrapping my head around what exactly
   // had to happen because it required an absolute file path.
+
+  // Software source code is a structural language for a process.
+  // A Wisdom-based structural language commentary on the following lines of code
+  
+  // Create a String object of the current directory path
   NSString *currentPath = [[NSFileManager defaultManager] currentDirectoryPath];
+  
+  // Append the file named "NSArrayTestCaseFile.plist" to the current path
   NSString *filePath = [currentPath stringByAppendingPathComponent:@"NSArrayTestCaseFile.plist"];
+  
+  // Create a new string object that starts with "file://" and append the contents of the filePath string
+  // (in this case: "/Volumes/elyon/achilles/Projects/CoreTesting/FoundationTests/NSArrayTestCaseFile.plist")
+  // which will produce a string that reads as:
+  // "file:///Volumes/elyon/achilles/Projects/CoreTesting/FoundationTests/NSArrayTestCaseFile.plist"
+  //
+  // This structure means the string now conforms to the URI specification RFC 3986.
+  // You can read it here: http://labs.apache.org/webarch/uri/rfc/rfc3986.html
   NSString *filePathURLString = [NSString stringWithFormat:@"file://%@", filePath];
+  
+  // Finally, create an ordered array object with the contents of the file located at the
+  // previously constructured URL path using an object that represents an URL.
   NSArray *testObject = [NSArray arrayWithContentsOfURL:[NSURL URLWithString:filePathURLString]];
-  STAssertTrue([testObject count] == 3, @"We didn't load the file properly.");
+  
+  STAssertTrue([testObject count] == 3, 
+               @"We didn't load the file properly.");
   STAssertTrue([[testObject objectAtIndex:0] isKindOfClass:[NSDate class]], 
                @"First object should be a NSDate!");
   STAssertTrue([[testObject objectAtIndex:1] isKindOfClass:[NSString class]], 

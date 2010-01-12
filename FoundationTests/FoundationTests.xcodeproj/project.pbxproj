@@ -74,7 +74,6 @@
 		6F8544860FC0E67500AA9710 /* Unit Tests-iphone-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Unit Tests-iphone-Info.plist"; sourceTree = "<group>"; };
 		6FD738A910F61CB400026DF6 /* NSTestObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSTestObject.h; sourceTree = "<group>"; };
 		6FD738AA10F61CB400026DF6 /* NSTestObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSTestObject.m; sourceTree = "<group>"; };
-		6FD738DE10F61F7E00026DF6 /* ForceFeedback.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ForceFeedback.framework; path = System/Library/Frameworks/ForceFeedback.framework; sourceTree = SDKROOT; };
 		6FD7390610F6204100026DF6 /* FoundationTestsGlobalHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoundationTestsGlobalHeader.m; sourceTree = "<group>"; };
 		6FD7395B10F6226A00026DF6 /* Unit Tests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Unit Tests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6FE1A25810CFE31C00B20B42 /* UKHelperMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UKHelperMacros.h; sourceTree = "<group>"; };
@@ -124,7 +123,6 @@
 				034768DFFF38A50411DB9C8B /* Products */,
 				6F8544780FC0E64300AA9710 /* FoundationTests-iphone-Info.plist */,
 				6F8544860FC0E67500AA9710 /* Unit Tests-iphone-Info.plist */,
-				6FD738DE10F61F7E00026DF6 /* ForceFeedback.framework */,
 			);
 			name = FoundationTests;
 			sourceTree = "<group>";
