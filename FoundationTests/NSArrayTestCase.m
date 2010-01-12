@@ -132,14 +132,21 @@
 
 - (void)testArrayWithContentsOfURL
 {
-  NSString *filePath = [[NSBundle mainBundle] pathForResource:@"NSArrayTestCaseFile" ofType:@"plist"];
-  MSLog(@"filePath = %@", filePath);
-  MSLog(@"[[NSBundle mainBundle] bundlePath] = %@", [[NSBundle mainBundle] bundlePath]);
-  NSURL *fileURL = [NSURL URLWithString:filePath];
-  NSArray *testObject = [NSArray arrayWithContentsOfURL:fileURL];
-
-  // test something here....
+  // This one was a little tricky. Since I had to prefix the URL path string with
+  // @"file://" I really had a hard time wrapping my head around what exactly
+  // had to happen because it required an absolute file path.
+  NSString *currentPath = [[NSFileManager defaultManager] currentDirectoryPath];
+  NSString *filePath = [currentPath stringByAppendingPathComponent:@"NSArrayTestCaseFile.plist"];
+  NSString *filePathURLString = [NSString stringWithFormat:@"file://%@", filePath];
+  NSArray *testObject = [NSArray arrayWithContentsOfURL:[NSURL URLWithString:filePathURLString]];
   STAssertTrue([testObject count] == 3, @"We didn't load the file properly.");
+  STAssertTrue([[testObject objectAtIndex:0] isKindOfClass:[NSDate class]], 
+               @"First object should be a NSDate!");
+  STAssertTrue([[testObject objectAtIndex:1] isKindOfClass:[NSString class]], 
+               @"Second object should be a NSString!");
+  STAssertTrue([NSStringFromClass([[testObject objectAtIndex:2] class]) isEqualToString:@"NSCFBoolean"],
+               @"Third object should be a NSCFBoolean!");
+  STAssertTrue([[testObject objectAtIndex:2] boolValue] == YES, @"Should be a YES!");
 }
 
 @end

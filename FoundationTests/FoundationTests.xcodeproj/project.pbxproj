@@ -15,6 +15,8 @@
 		6F2A4BD310FB1D520091C8C8 /* NSArrayTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F2A4BD110FB1D520091C8C8 /* NSArrayTestCase.m */; };
 		6F2A4BE410FB223C0091C8C8 /* NSArrayTestCaseFile.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6F2A4BE310FB223C0091C8C8 /* NSArrayTestCaseFile.plist */; };
 		6F2A4BE510FB223C0091C8C8 /* NSArrayTestCaseFile.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6F2A4BE310FB223C0091C8C8 /* NSArrayTestCaseFile.plist */; };
+		6F2A4DE510FC94F10091C8C8 /* OCMock.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6F2A4DE410FC94F10091C8C8 /* OCMock.framework */; };
+		6F2A4DE610FC94F10091C8C8 /* OCMock.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6F2A4DE410FC94F10091C8C8 /* OCMock.framework */; };
 		6FD738AB10F61CB400026DF6 /* NSTestObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FD738AA10F61CB400026DF6 /* NSTestObject.m */; };
 		6FD7390710F6204100026DF6 /* FoundationTestsGlobalHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FD7390610F6204100026DF6 /* FoundationTestsGlobalHeader.m */; };
 		6FD7396210F6229900026DF6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F7AF1C90FB07E4900A69567 /* Foundation.framework */; };
@@ -25,6 +27,29 @@
 		6FD7396710F622AE00026DF6 /* FoundationTestsGlobalHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FD7390610F6204100026DF6 /* FoundationTestsGlobalHeader.m */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		6F6F1C2110FC97A50073A43A /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(BUILT_PRODUCTS_DIR)";
+			dstSubfolderSpec = 0;
+			files = (
+				6F2A4DE510FC94F10091C8C8 /* OCMock.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6F6F1C4710FC9DD50073A43A /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(BUILT_PRODUCTS_DIR)";
+			dstSubfolderSpec = 0;
+			files = (
+				6F2A4DE610FC94F10091C8C8 /* OCMock.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		0867D69BFE84028FC02AAC07 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
 		0867D6A5FE840307C02AAC07 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
@@ -34,6 +59,7 @@
 		6F2A4BD010FB1D520091C8C8 /* NSArrayTestCase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSArrayTestCase.h; sourceTree = "<group>"; };
 		6F2A4BD110FB1D520091C8C8 /* NSArrayTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSArrayTestCase.m; sourceTree = "<group>"; };
 		6F2A4BE310FB223C0091C8C8 /* NSArrayTestCaseFile.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = NSArrayTestCaseFile.plist; sourceTree = "<group>"; };
+		6F2A4DE410FC94F10091C8C8 /* OCMock.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = OCMock.framework; sourceTree = "<group>"; };
 		6F7AF1AC0FB07B1A00A69567 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		6F7AF1B40FB07CE000A69567 /* MLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLog.h; sourceTree = "<group>"; };
 		6F7AF1B50FB07CE000A69567 /* MLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLog.m; sourceTree = "<group>"; };
@@ -107,7 +133,6 @@
 			isa = PBXGroup;
 			children = (
 				1058C7B0FEA5585E11CA2CBB /* Linked Frameworks */,
-				6F7AF1C90FB07E4900A69567 /* Foundation.framework */,
 				1058C7B2FEA5585E11CA2CBB /* Other Frameworks */,
 			);
 			name = "External Frameworks and Libraries";
@@ -138,6 +163,8 @@
 		1058C7B0FEA5585E11CA2CBB /* Linked Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6F2A4DE410FC94F10091C8C8 /* OCMock.framework */,
+				6F7AF1C90FB07E4900A69567 /* Foundation.framework */,
 				6F7AF1CB0FB07E5E00A69567 /* SenTestingKit.framework */,
 				6F7AF1AC0FB07B1A00A69567 /* SenTestingKit.framework */,
 				1058C7B1FEA5585E11CA2CBB /* Cocoa.framework */,
@@ -188,6 +215,7 @@
 				6F8544810FC0E67500AA9710 /* Sources */,
 				6F8544820FC0E67500AA9710 /* Frameworks */,
 				6F8544830FC0E67500AA9710 /* ShellScript */,
+				6F6F1C2110FC97A50073A43A /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -206,6 +234,7 @@
 				6FD7395710F6226A00026DF6 /* Sources */,
 				6FD7395810F6226A00026DF6 /* Frameworks */,
 				6FD7395910F6226A00026DF6 /* ShellScript */,
+				6F6F1C4710FC9DD50073A43A /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -353,7 +382,10 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				COPY_PHASE_STRIP = NO;
-				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
@@ -382,7 +414,10 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_MODEL_TUNING = G5;
@@ -409,10 +444,14 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				COPY_PHASE_STRIP = NO;
-				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_ENABLE_OBJC_GC = unsupported;
 				GCC_MODEL_TUNING = G5;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -438,7 +477,10 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_MODEL_TUNING = G5;
