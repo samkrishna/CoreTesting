@@ -47,7 +47,7 @@
 												(targ) = [(newval) retain];\
 												[__UKHELPERMACRO_OLDTARG release];\
 											} while(0)
-											
+
 #define DESTROY(targ)						do {\
 												NSObject* __UKHELPERMACRO_OLDTARG = (NSObject*)(targ);\
 												(targ) = nil;\
