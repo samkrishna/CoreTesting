@@ -329,4 +329,100 @@
 – reverseObjectEnumerator
 */
 
+- (void)testContainsObject
+{
+  NSDate *date = [NSDate date];
+  NSArray *originalDateArray = [NSArray arrayWithObject:date];
+  NSArray *copyDateArray = [[NSArray alloc] initWithArray:originalDateArray copyItems:YES];
+
+  STAssertTrue([originalDateArray containsObject:date], 
+               @"We may be having an identity crisis!");
+  // This next result threw me because I mistakenly thought -hash guaranteed uniqueness no matter what.
+  // [copyDateArray lastObject] has a retainCount = 1.
+  // [originalDateArray lastObject] has a retainCount = 2.
+  // However, -hash returns the same number for both.
+  // I'll go ahead and assent, even though in my mind they are clearly *not* identical.
+  // But I can accept Apple's POV and will let it stand in the test.
+  // (Also see the notes at -indexOfObjectIdenticalTo:)
+  STAssertTrue([copyDateArray containsObject:date], 
+               @"We are definitely having an identity crisis!");
+  
+  [copyDateArray release];
+  copyDateArray = nil;
+}
+
+- (void)testCount
+{
+  NSDate *date = [NSDate date];
+  NSArray *testArray = [NSArray arrayWithObjects:date, date, date, nil];
+  
+  STAssertTrue([testArray count] == 3, @"We definitely have an issue with +arrayWithObjects.");
+}
+
+- (void)testGetObjects
+{
+  NSDate *dates[3];
+  NSDate *date = [NSDate date];
+  NSArray *testArray = [NSArray arrayWithObjects:date, date, date, nil];
+  [testArray getObjects:dates];
+  
+  STAssertNotNil(dates[2], @"There should be something here!");
+}
+
+- (void)testGetObjectsRange
+{
+  // If we do:
+  // NSDate *dates[3];
+  // then
+  // STAssertNil(dates[2], @"There should be nothing here!");
+  // fails b/c the dates array isn't initialized to nil.
+  NSDate *dates[3] = {nil, nil, nil};
+  NSDate *date = [NSDate date];
+  NSArray *testArray = [NSArray arrayWithObjects:date, date, date, date, nil];
+  [testArray getObjects:dates range:NSMakeRange(0, 2)];
+  
+  STAssertNil(dates[2], @"There should be nothing here!");
+  STAssertNotNil(dates[1], @"There should be something here!");
+}
+
+- (void)testIndexOfObject
+{
+  NSDate *dateZero = [NSDate date];
+  NSDate *dateOne = [NSDate distantPast];
+  NSDate *dateTwo = [NSDate distantFuture];
+  NSArray *testObject = [NSArray arrayWithObjects:dateZero, dateOne, dateTwo, nil];
+
+  // test something here....
+  STAssertTrue([testObject indexOfObject:dateZero] == 0, @"dateZero isn't here. We are doomed!");
+  STAssertTrue([testObject indexOfObject:dateOne] == 1, @"dateOne isn't here. We are doomed!");
+  STAssertTrue([testObject indexOfObject:dateTwo] == 2, @"dateTwo isn't here. We are doomed!");
+}
+
+- (void)testIndexOfObjectInRange
+{
+  NSDate *dateZero = [NSDate date];
+  NSDate *dateOne = [NSDate distantPast];
+  NSDate *dateTwo = [NSDate distantFuture];
+  NSArray *testObject = [NSArray arrayWithObjects:dateZero, dateOne, dateZero, dateTwo, dateTwo, dateZero, nil];
+  
+  // test something here....
+  STAssertTrue([testObject indexOfObject:dateZero inRange:NSMakeRange(1, 4)] == 2, @"We're doomed!");
+  STAssertTrue([testObject indexOfObject:dateTwo inRange:NSMakeRange(1, 4)] == 3, @"We're doomed!");
+  STAssertFalse([testObject indexOfObject:dateZero inRange:NSMakeRange(1, 4)] == 0, @"We're doomed!");
+  STAssertTrue([testObject indexOfObject:dateTwo inRange:NSMakeRange(0, 3)] == NSNotFound, @"We're doomed!");
+}
+
+- (void)testIndexOfObjectIdenticalTo
+{
+  NSDate *dateZero = [NSDate date];
+  NSDate *dateOne = [NSDate distantPast];
+  NSDate *dateTwo = [NSDate distantFuture];
+  NSDate *dateIdenticalToDateTwo = dateTwo;
+  NSArray *testObject = [NSArray arrayWithObjects:dateZero, dateOne, dateZero, dateTwo, dateTwo, dateZero, nil];
+  
+  // test something here....
+  STAssertTrue([testObject indexOfObjectIdenticalTo:dateZero] == 0, @"We're doomed!");
+  STAssertTrue([testObject indexOfObjectIdenticalTo:dateIdenticalToDateTwo] == 3, @"We're doomed!");
+}
+
 @end
